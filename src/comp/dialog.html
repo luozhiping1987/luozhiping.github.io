@@ -1,0 +1,45 @@
+﻿<div id="app">
+
+<template slot="left-field">
+    <el-button type="danger" icon="el-icon-circle-plus-outline" @click="addTodo">添加</el-button>
+</template>
+
+
+
+<template>
+    <el-dialog :visible.sync="localShow" :title="title" :before-close="beforeClose">
+        <!-- 插槽区 -->
+        <slot></slot>
+        <!-- 按钮区 -->
+        <span slot="footer">
+            <el-button type="success" icon="el-icon-check" @click="save">保存</el-button>
+            <el-button type="danger" icon="el-icon-close" @click="close">关闭</el-button>
+        </span>
+    </el-dialog>
+</template>
+
+
+</div>
+
+
+<link href="../css/element.css" rel="stylesheet" />
+<script src="../js/vue.js"></script>
+<script src="../js/element.js"></script>
+
+
+
+
+
+
+<script>
+new Vue({
+    el: "#app",
+    data() {
+        return {};
+    },
+    methods: {
+        entQun() {
+        }
+    }
+});
+</script>

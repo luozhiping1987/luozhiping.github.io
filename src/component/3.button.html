@@ -1,0 +1,78 @@
+﻿<div id="app">
+<hr />
+3.vue-button
+<hr />
+<template>
+  <div>
+    <el-button icon="el-icon-circle-plus" type="primary">添加</el-button>
+    <el-button round icon="el-icon-edit" type="warning">编辑</el-button>
+    <el-button plain icon="el-icon-delete" type="danger">删除</el-button>
+    <el-button plain round icon="el-icon-view" type="view">查看</el-button>
+    <el-button circle icon="el-icon-share" type="success"></el-button>
+  </div>
+</template>
+
+
+
+<template>
+  <el-button-group>
+    <el-button type="primary" icon="el-icon-d-arrow-left">快退</el-button>
+    <el-button type="primary" icon="el-icon-caret-right">播放</el-button>
+    <el-button type="primary" icon="el-icon-d-arrow-right">快进</el-button>
+    <el-button type="primary" icon="el-icon-bell">音量</el-button>
+    <el-button type="primary" icon="el-icon-menu">菜单</el-button>
+  </el-button-group>
+</template>
+
+
+
+
+</div>
+
+
+<link href="../css/element.css" rel="stylesheet" />
+<style>
+.el-header {
+  background-color: #409EFF;
+  color: white;
+}
+.el-footer {
+  background-color: #909399;
+  color: black;
+  text-align: center;
+}
+.el-aside {
+  background-color: chartreuse;
+}
+.el-main {
+  background-color: darkkhaki;
+}
+.el-col {
+  height: 200px;
+}
+.col1 {
+  background-color: teal;
+}
+.col2 {
+  background-color: tomato;
+}
+.col3 {
+  background-color: thistle;
+}
+</style>
+
+
+<script src="../js/vue.js"></script>
+<script src="../js/element.js"></script>
+<script>
+new Vue({
+    el: "#app",
+    data() {
+        return {};
+    },
+    methods: {
+        entQun() {
+        }
+    }
+});
+</script>

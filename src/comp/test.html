@@ -1,0 +1,380 @@
+﻿<div id="app">
+<template>
+
+<hr />
+1.vue-layout
+<hr />
+  <el-container>
+    <!-- 顶栏 -->
+    <el-header height="60px">
+      <h2>Element 页面布局</h2>
+    </el-header>
+    <!-- 嵌套容器 -->
+    <el-container>
+      <!-- 侧边导航菜单 -->
+      <el-aside width="150px">侧边栏</el-aside>
+      <!-- 内容 -->
+      <el-main>
+        <!-- 第一列栅格布局 -->
+        <el-row>
+          <el-col :span="12" class="col1">col1</el-col>
+          <el-col :span="12" class="col2">col2</el-col>
+        </el-row>
+        <!-- 第二列布局 -->
+        <el-row>
+          <el-col :span="24" class="col3">col3</el-col>
+        </el-row>
+      </el-main>
+    </el-container>
+    <!-- 底栏 -->
+    <el-footer height="30px">罗罗</el-footer>
+  </el-container>
+</template>
+
+
+
+<hr />
+1.vue-link
+<hr />
+<template>
+  <div>
+    <el-link icon="el-icon-s-home" type="primary">主页</el-link>&nbsp;
+    <el-link icon="el-icon-shopping-cart-2" type="success">商品列表</el-link>&nbsp;
+    <el-link disabled icon="el-icon-s-platform" type="danger">系统管理</el-link>&nbsp;
+    <el-link icon="el-icon-setting" type="warning">个人设置</el-link>&nbsp;
+    <el-link href="http://www.baidu.com" icon="el-icon-search" type="info">百度搜索</el-link>
+  </div>
+</template>
+
+<hr />
+5.vue-dialog
+<hr />
+<template>
+    <el-dialog :visible.sync="localShow" :title="title" :before-close="beforeClose">
+        <!-- 插槽区 -->
+        <slot></slot>
+        <!-- 按钮区 -->
+        <span slot="footer">
+            <el-button type="success" icon="el-icon-check" @click="save">保存</el-button>
+            <el-button type="danger" icon="el-icon-close" @click="close">关闭</el-button>
+        </span>
+    </el-dialog>
+</template>
+
+<template>
+  <el-radio v-model="radio" label="1">备选项</el-radio>
+  <el-radio v-model="radio" label="2">备选项</el-radio>
+</template>
+
+<template>
+  <el-radio disabled v-model="radio" label="1">备选项</el-radio>
+  <el-radio disabled v-model="radio" label="2">备选项</el-radio>
+</template>
+
+
+ <div>
+    <el-radio-group v-model="radio1">
+      <el-radio-button label="上海"></el-radio-button>
+      <el-radio-button label="北京"></el-radio-button>
+      <el-radio-button label="广州"></el-radio-button>
+      <el-radio-button label="深圳"></el-radio-button>
+    </el-radio-group>
+  </div>
+
+
+
+
+
+
+
+  <div>
+    <el-radio v-model="radio1" label="1" border>备选项1</el-radio>
+    <el-radio v-model="radio1" label="2" border>备选项2</el-radio>
+  </div>
+
+
+
+  <el-select v-model="value" placeholder="请选择">
+    <el-option
+      v-for="item in options"
+      :key="item.value"
+      :label="item.label"
+      :value="item.value">
+    </el-option>
+  </el-select>
+
+
+  <el-select v-model="value" placeholder="请选择">
+    <el-option
+      v-for="item in options"
+      :key="item.value"
+      :label="item.label"
+      :value="item.value">
+      <span style="float: left">{{ item.label }}</span>
+      <span style="float: right; color: #8492a6; font-size: 13px">{{ item.value }}</span>
+    </el-option>
+  </el-select>
+
+
+
+  <el-select v-model="value" placeholder="请选择">
+    <el-option-group
+      v-for="group in options"
+      :key="group.label"
+      :label="group.label">
+      <el-option
+        v-for="item in group.options"
+        :key="item.value"
+        :label="item.label"
+        :value="item.value">
+      </el-option>
+    </el-option-group>
+  </el-select>
+
+  <el-switch
+  v-model="switchmodel"
+  active-color="#13ce66"
+  inactive-color="#ff4949">
+</el-switch>
+
+
+
+
+
+
+<div class="block">
+  <span class="demonstration">默认 click 触发子菜单</span>
+  <el-cascader
+    v-model="value"
+    :options="options"
+    @change="handleChange"></el-cascader>
+</div>
+<div class="block">
+  <span class="demonstration">hover 触发子菜单</span>
+  <el-cascader
+    v-model="value"
+    :options="options"
+    :props="{ expandTrigger: 'hover' }"
+    @change="handleChange"></el-cascader>
+</div>
+
+
+
+ <div class="block">
+    <span class="demonstration">默认</span>
+    <el-slider v-model="slidermodel"></el-slider>
+  </div>
+
+
+  <el-time-select
+  v-model="timemodel"
+  :picker-options="{
+    start: '08:30',
+    step: '00:15',
+    end: '18:30'
+  }"
+  placeholder="选择时间">
+</el-time-select>
+
+
+
+
+
+
+<template>
+  <el-time-picker
+    v-model="timemodel2"
+    :picker-options="{
+      selectableRange: '18:30:00 - 20:30:00'
+    }"
+    placeholder="任意时间点">
+  </el-time-picker>
+  <el-time-picker
+    arrow-control
+    v-model="value2"
+    :picker-options="{
+      selectableRange: '18:30:00 - 20:30:00'
+    }"
+    placeholder="任意时间点">
+  </el-time-picker>
+</template>
+
+
+<template>
+  <div class="block">
+    <span class="demonstration">默认</span>
+    <el-date-picker
+      v-model="datemodel1"
+      type="date"
+      placeholder="选择日期">
+    </el-date-picker>
+  </div>
+
+
+
+
+  <div class="block">
+    <span class="demonstration">带快捷选项</span>
+    <el-date-picker
+      v-model="datemodel2"
+      align="right"
+      type="date"
+      placeholder="选择日期"
+      :picker-options="pickerOptions">
+    </el-date-picker>
+  </div>
+</template>
+
+
+<el-upload
+  class="upload-demo"
+  action="https://jsonplaceholder.typicode.com/posts/"
+  :on-preview="handlePreview"
+  :on-remove="handleRemove"
+  :before-remove="beforeRemove"
+  multiple
+  :limit="3"
+  :on-exceed="handleExceed"
+  :file-list="fileList">
+  <el-button size="small" type="primary">点击上传</el-button>
+  <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+</el-upload>
+
+
+
+
+<div class="block">
+  <span class="demonstration">默认不区分颜色</span>
+  <el-rate v-model="value1"></el-rate>
+</div>
+
+
+
+<div class="block">
+  <span class="demonstration">有默认值</span>
+  <el-color-picker v-model="color1"></el-color-picker>
+</div>
+
+
+
+
+</div>
+
+
+<link href="../css/element.css" rel="stylesheet" />
+<style>
+.el-header {
+  background-color: #409EFF;
+  color: white;
+}
+.el-footer {
+  background-color: #909399;
+  color: black;
+  text-align: center;
+}
+.el-aside {
+  background-color: chartreuse;
+}
+.el-main {
+  background-color: darkkhaki;
+}
+.el-col {
+  height: 200px;
+}
+.col1 {
+  background-color: teal;
+}
+.col2 {
+  background-color: tomato;
+}
+.col3 {
+  background-color: thistle;
+}
+</style>
+
+
+<script src="../js/vue.js"></script>
+<script src="../js/element.js"></script>
+
+
+
+
+<script>
+
+var obj = {
+ radio:'1',
+ radio1:'上海'
+}
+
+var options= [{
+          value: '选项1',
+          label: '黄金糕111111111'
+        }, {
+          value: '选项2',
+          label: '双皮奶2222222222',
+          disabled: true
+        }, {
+          value: '选项3',
+          label: '蚵仔煎'
+        }, {
+          value: '选项4',
+          label: '龙须面'
+        }, {
+          value: '选项5',
+          label: '北京烤鸭'
+        }];
+
+
+
+
+
+var app =new Vue({
+    el: "#app",
+    data: {
+       color1:'#409EFF',
+       slidermodel:'',
+       options: options,
+         shortcuts: [{
+            text: '今天',
+            onClick(picker) {
+              picker.$emit('pick', new Date());
+            }
+          }, {
+            text: '昨天',
+            onClick(picker) {
+              const date = new Date();
+              date.setTime(date.getTime() - 3600 * 1000 * 24);
+              picker.$emit('pick', date);
+            }
+          }, {
+            text: '一周前',
+            onClick(picker) {
+              const date = new Date();
+              date.setTime(date.getTime() - 3600 * 1000 * 24 * 7);
+              picker.$emit('pick', date);
+            }
+          }]
+        },
+
+        switchmodel:true,
+        timemodel:'',
+        timemodel2: new Date(2016, 9, 10, 18, 40),
+        datemodel1:'',
+        datemodel2:'',
+        value1: 0,
+        pickerOptions: {
+          disabledDate(time) {
+            return time.getTime() > Date.now();
+          },
+
+        fileList: [{name: 'food.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}, {name: 'food2.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}]
+      
+    },
+    methods: {
+       
+    }
+});
+
+
+
+</script>
